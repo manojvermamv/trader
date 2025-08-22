@@ -235,3 +235,15 @@ RISK
 > **“Buy only when price, options flow (ΔOI + excess premium), and IV align — or don’t buy at all.”**
 
 Stay patient. Let the market **show demand for options** (not just underlying) before you pay premium.
+
+
+---
+
+## 📊 PCR Live Dashboard Reference
+
+| Source         | Link                                                                 | Notes                        |
+|----------------|----------------------------------------------------------------------|------------------------------|
+| NSE            | [NSE Option Chain](https://www.nseindia.com/option-chain)            | Official OI & PCR data       |
+| Sensibull      | [Sensibull Option Chain](https://web.sensibull.com/optionchain)      | PCR + strategy               |
+| NiftyTrader    | [NiftyTrader](https://www.niftytrader.in/nifty-put-call-ratio)                               | Clean UI for data            |
+| TradingView    | Custom OI/PCR indicators                                              | Needs setup                  |
