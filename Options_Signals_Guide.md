@@ -1,4 +1,4 @@
-# Signals Guide — Options Buyer Edition (2025 Optimized)
+# Options Signals Guide — Options Buyer Edition (2025 Optimized)
 
 A structured playbook for **retail options buyers** (NIFTY/BANKNIFTY intraday) to filter **TradingView signals (e.g., Supertrend)** with **1-min option chain OI + premium data**.
 
