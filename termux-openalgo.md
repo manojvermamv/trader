@@ -138,8 +138,6 @@ You are now ready to use OpenAlgo on your Android device via Termux!
 For future runs, simply execute:
 
 ```bash
-proot-distro login debian --shared-tmp --bind /sdcard
-cd ~/openalgo
-source .venv/bin/activate
-python app.py   # or flask run
+proot-distro login debian
+cd ~/openalgo && source .venv/bin/activate && python app.py
 ```
