@@ -141,3 +141,33 @@ For future runs, simply execute:
 proot-distro login debian
 cd ~/openalgo && source .venv/bin/activate && python app.py
 ```
+
+---
+
+## 🔁 Autologin Command Injection
+
+Append commands to `~/.bashrc` (inside Debian), so they auto-run when you login.
+
+Edit `.bashrc` inside Debian:
+
+```bash
+nano ~/.bashrc
+```
+
+Add at the bottom:
+
+```bash
+cd ~/openalgo
+source .venv/bin/activate
+python app.py
+```
+
+Now every time you run:
+
+```bash
+proot-distro login debian --shared-tmp --bind /sdcard
+```
+
+…It will immediately start OpenAlgo.
+
+> ⚠️ Downside: you will lose a normal interactive shell unless you comment out or remove these lines from `~/.bashrc` when you need a regular shell.
