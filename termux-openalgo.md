@@ -1,33 +1,22 @@
 # OpenAlgo Setup on Termux
 
-This guide explains how to set up and run **OpenAlgo** on Termux for Android, including optional Debian installation for full Linux compatibility, Python virtual environment usage.
+This guide explains how to set up and run **OpenAlgo** on Termux for Android, including optional Debian installation for full Linux compatibility and Python virtual environment usage.
 
 ---
 
-## 1️⃣ Update Termux & Packages
-
-```bash
-pkg update && pkg upgrade -y
-pkg install proot-distro
-````
-
----
-
-## 2️⃣ Setup Termux Storage
+## 1️⃣ Setup & Update Termux
 
 ```bash
 termux-setup-storage
+pkg update && pkg upgrade -y
 ```
-
-* Grants access to `/sdcard` and `~/storage` directories.
-* Useful for saving logs, datasets, or outputs outside the chroot environment.
-
 
 ---
 
-## 3️⃣ (Optional) Install Debian for Full Linux Compatibility
+## 2️⃣ Install Debian for Full Linux Compatibility
 
 ```bash
+pkg install proot-distro -y
 proot-distro install debian
 proot-distro login debian
 ```
@@ -36,16 +25,16 @@ proot-distro login debian
 
 ---
 
-## 4️⃣ Update Debian Packages
+## 3️⃣ Update Debian Packages
 
 ```bash
 apt update && apt upgrade -y
-apt install git clang rust cargo openssl python3 python3-pip -y
+apt install git openssl python3 python3-pip python3-venv -y
 ```
 
 ---
 
-## 5️⃣ Clone OpenAlgo Repository
+## 4️⃣ Clone OpenAlgo Repository
 
 ```bash
 git clone https://github.com/marketcalls/openalgo.git
@@ -54,7 +43,7 @@ cd openalgo/
 
 ---
 
-## 6️⃣ Create & Activate Python Virtual Environment
+## 5️⃣ Create & Activate Python Virtual Environment
 
 ```bash
 python3 -m venv .venv
@@ -65,7 +54,7 @@ source .venv/bin/activate
 
 ---
 
-## 7️⃣ Install Python Dependencies
+## 6️⃣ Install Python Dependencies
 
 ```bash
 python3 -m pip install --upgrade pip
@@ -73,11 +62,10 @@ python3 -m pip install -r requirements.txt
 ```
 
 * Installs all required packages inside `.venv`.
-* Make sure `clang`, `rust`, `cargo`, and `openssl` are installed on Termux for compiling dependencies.
 
 ---
 
-## 8️⃣ Run OpenAlgo
+## 7️⃣ Run OpenAlgo
 
 ```bash
 # Example if the repo uses app.py
@@ -91,7 +79,7 @@ flask run
 
 ---
 
-## 9️⃣ Deactivate Virtual Environment
+## 8️⃣ Deactivate Virtual Environment
 
 ```bash
 deactivate
@@ -133,15 +121,25 @@ source .venv/bin/activate
 
 ## ✅ Summary
 
-1. Update Termux.
-2. Setup Termux storage for file access.
-3. (Optional) Debian → install dependencies.
-4. Clone OpenAlgo repo.
-5. Create virtual environment `.venv`.
-6. Activate `.venv` and install Python requirements.
-7. Run OpenAlgo inside `.venv`.
-8. Deactivate when done.
+1. Setup & update Termux.
+2. Install Debian and dependencies.
+3. Clone OpenAlgo repo.
+4. Create virtual environment `.venv`.
+5. Activate `.venv` and install Python requirements.
+6. Run OpenAlgo inside `.venv`.
+7. Deactivate when done.
 
 You are now ready to use OpenAlgo on your Android device via Termux!
 
+---
+
+## 🚀 Quick Start (After First Setup)
+
+For future runs, simply execute:
+
+```bash
+proot-distro login debian --shared-tmp --bind /sdcard
+cd ~/openalgo
+source .venv/bin/activate
+python app.py   # or flask run
 ```
