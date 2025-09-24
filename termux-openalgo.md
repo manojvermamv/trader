@@ -157,15 +157,13 @@ nano ~/.bashrc
 Add at the bottom:
 
 ```bash
-cd ~/openalgo
-source .venv/bin/activate
-python app.py
+cd ~/openalgo && source .venv/bin/activate && python app.py
 ```
 
 Now every time you run:
 
 ```bash
-proot-distro login debian --shared-tmp --bind /sdcard
+proot-distro login debian
 ```
 
 …It will immediately start OpenAlgo.
